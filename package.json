@@ -4,11 +4,13 @@
   "description": "Clone of unix wc, to log the word, line, character, and byte count",
   "main": "index.js",
   "devDependencies": {
-    "@types/node": "^20.11.24"
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.24",
+    "jest": "^29.7.0"
   },
   "scripts": {
     "start": "tsc && node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC"
