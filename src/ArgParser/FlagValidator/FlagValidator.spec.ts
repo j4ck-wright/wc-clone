@@ -1,4 +1,4 @@
-import FlagValidator from "./FlagValidator";
+import FlagValidator from ".";
 
 describe("Flag Validator", () => {
   it("Returns an array of one flag", () => {
