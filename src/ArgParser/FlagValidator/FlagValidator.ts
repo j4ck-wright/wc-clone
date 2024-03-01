@@ -19,22 +19,26 @@ export default class FlagValidator {
     return Constants.getValidFlags().includes(flag);
   }
 
+  private getPotentialFlags(args: string[]) {
+    return args.filter((arg) => arg.startsWith("-"));
+  }
+
   private parseFlags(args: string[]) {
-    args.forEach((arg) => {
-      if (arg.startsWith("-")) {
-        let flagCluster = arg.slice(1);
-        for (let i = 0; i < flagCluster.length; i++) {
-          let singleFlag = flagCluster[i];
+    const potentialFlags = this.getPotentialFlags(args);
 
-          if (!singleFlag) continue;
+    potentialFlags.forEach((arg) => {
+      let flagCluster = arg.slice(1);
+      for (let i = 0; i < flagCluster.length; i++) {
+        let singleFlag = flagCluster[i];
 
-          if (!this.isValidFlag(singleFlag)) {
-            throw `illegal option -- ${singleFlag}\n${Constants.getUsage()}`;
-          }
+        if (!singleFlag) continue;
 
-          if (!this.flagAlreadyUsed(singleFlag)) {
-            this.flags.push(singleFlag);
-          }
+        if (!this.isValidFlag(singleFlag)) {
+          throw `illegal option -- ${singleFlag}\n${Constants.getUsage()}`;
+        }
+
+        if (!this.flagAlreadyUsed(singleFlag)) {
+          this.flags.push(singleFlag);
         }
       }
     });
