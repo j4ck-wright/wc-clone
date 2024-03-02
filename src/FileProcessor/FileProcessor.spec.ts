@@ -1,7 +1,7 @@
 import FileProcessor from ".";
 
 describe("File Parser", () => {
-  const fileProcessor = new FileProcessor("example.txt");
+  const fileProcessor = new FileProcessor("examples/example.txt");
 
   it("Returns correct number of lines", () => {
     expect(fileProcessor.getLines()).toEqual(7146);
