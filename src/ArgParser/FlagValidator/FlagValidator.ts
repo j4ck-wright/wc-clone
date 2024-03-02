@@ -29,9 +29,7 @@ export default class FlagValidator {
     potentialFlags.forEach((arg) => {
       let flagCluster = arg.slice(1);
       for (let i = 0; i < flagCluster.length; i++) {
-        let singleFlag = flagCluster[i];
-
-        if (!singleFlag) continue;
+        let singleFlag = flagCluster[i] as string;
 
         if (!this.isValidFlag(singleFlag)) {
           throw `illegal option -- ${singleFlag}\n${Constants.USAGE}`;
