@@ -1,7 +1,7 @@
 import FileValidator from "./FileValidator";
 import FlagValidator from "./FlagValidator";
 
-export default class ArgParser {
+export default class Parser {
   protected flags: string[] = [];
   protected files: string[] = [];
 
