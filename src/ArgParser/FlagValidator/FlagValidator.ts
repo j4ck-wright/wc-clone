@@ -16,7 +16,7 @@ export default class FlagValidator {
   }
 
   private isValidFlag(flag: string) {
-    return Constants.getValidFlags().includes(flag);
+    return Constants.FLAGS.includes(flag);
   }
 
   private getPotentialFlags(args: string[]) {
@@ -34,7 +34,7 @@ export default class FlagValidator {
         if (!singleFlag) continue;
 
         if (!this.isValidFlag(singleFlag)) {
-          throw `illegal option -- ${singleFlag}\n${Constants.getUsage()}`;
+          throw `illegal option -- ${singleFlag}\n${Constants.USAGE}`;
         }
 
         if (!this.flagAlreadyUsed(singleFlag)) {

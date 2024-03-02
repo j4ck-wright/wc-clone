@@ -1,9 +1,5 @@
 export default class Constants {
-  static getValidFlags() {
-    return ["c", "l", "m", "w"];
-  }
+  static FLAGS = ["c", "l", "m", "w"];
 
-  static getUsage() {
-    return `usage: wc [-${this.getValidFlags().join("")}] [file ...]`;
-  }
+  static USAGE = `usage: wc [-${this.FLAGS.join("")}] [file ...]`;
 }
