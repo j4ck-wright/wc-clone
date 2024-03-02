@@ -5,6 +5,7 @@ export default class FlagValidator {
 
   constructor(args: string[]) {
     this.parseFlags(args);
+    this.sortFlags();
   }
 
   getFlags() {
@@ -21,6 +22,11 @@ export default class FlagValidator {
 
   private getPotentialFlags(args: string[]) {
     return args.filter((arg) => arg.startsWith("-"));
+  }
+
+  private sortFlags() {
+    const order = Constants.FLAGS;
+    this.flags.sort((a, b) => order.indexOf(a) - order.indexOf(b));
   }
 
   private parseFlags(args: string[]) {

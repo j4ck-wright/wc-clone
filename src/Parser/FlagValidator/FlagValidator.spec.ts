@@ -10,31 +10,31 @@ describe("Flag Validator", () => {
   it("Returns an array of several flag", () => {
     const args = ["-c", "-w", "-l"];
     const validator = new FlagValidator(args);
-    expect(validator.getFlags()).toStrictEqual(["c", "w", "l"]);
+    expect(validator.getFlags()).toStrictEqual(["c", "l", "w"]);
   });
 
   it("Returns an array of several flags when passed in a -xyz format", () => {
     const args = ["-cwl"];
     const validator = new FlagValidator(args);
-    expect(validator.getFlags()).toStrictEqual(["c", "w", "l"]);
+    expect(validator.getFlags()).toStrictEqual(["c", "l", "w"]);
   });
 
   it("Returns an array of several flags when passed in a -xy -z format", () => {
     const args = ["-cw", "-l"];
     const validator = new FlagValidator(args);
-    expect(validator.getFlags()).toStrictEqual(["c", "w", "l"]);
+    expect(validator.getFlags()).toStrictEqual(["c", "l", "w"]);
   });
 
   it("Returns an array of flags where duplicates are ignored", () => {
     const args = ["-cwwl", "-c", "-lc", "-wl"];
     const validator = new FlagValidator(args);
-    expect(validator.getFlags()).toStrictEqual(["c", "w", "l"]);
+    expect(validator.getFlags()).toStrictEqual(["c", "l", "w"]);
   });
 
   it("Returns an array of flags while ignoring file types", () => {
     const args = ["-cwl", "example.txt"];
     const validator = new FlagValidator(args);
-    expect(validator.getFlags()).toStrictEqual(["c", "w", "l"]);
+    expect(validator.getFlags()).toStrictEqual(["c", "l", "w"]);
   });
 
   it("Throws an error string when an invalid flag is passed", () => {
@@ -43,5 +43,11 @@ describe("Flag Validator", () => {
     expect(() => {
       new FlagValidator(args);
     }).toThrowError(/illegal option/);
+  });
+
+  it("Re-orders flags in ['c', 'l', 'm', 'w'] format", () => {
+    const args = ["-w", "-c"];
+    const validator = new FlagValidator(args);
+    expect(validator.getFlags()).toStrictEqual(["c", "w"]);
   });
 });
