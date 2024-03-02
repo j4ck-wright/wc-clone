@@ -1,4 +1,4 @@
-import OutputBuilder from "./OutputBuilder";
+import OutputBuilder from "./";
 
 describe("Output Builder", () => {
   const filePath = "examples/example.txt";
