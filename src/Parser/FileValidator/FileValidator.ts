@@ -1,7 +1,7 @@
 import { statSync } from "fs";
 
 export default class FileValidator {
-  protected files: string[] = [];
+  private readonly files: string[] = [];
 
   constructor(args: string[]) {
     this.parseFiles(args);

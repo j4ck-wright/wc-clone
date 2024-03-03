@@ -1,8 +1,8 @@
 import { Stats, statSync, readFileSync } from "fs";
 
 export default class FileProcessor {
-  protected file: Stats;
-  protected text: string;
+  private readonly file: Stats;
+  private readonly text: string;
 
   constructor(filePath: string) {
     this.file = statSync(filePath);

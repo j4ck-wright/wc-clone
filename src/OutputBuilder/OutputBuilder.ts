@@ -2,9 +2,9 @@ import Constants from "../Constants";
 import FileProcessor from "../FileProcessor";
 
 export default class OutputBuilder {
-  protected flags: String[];
-  protected fileProcessor: FileProcessor;
-  protected filePath: string;
+  private readonly flags: String[];
+  private readonly fileProcessor: FileProcessor;
+  private readonly filePath: string;
   private output = "";
 
   constructor(flags: String[], filePath: string) {

@@ -1,7 +1,7 @@
 import Constants from "../../Constants";
 
 export default class FlagValidator {
-  protected flags: string[] = [];
+  private readonly flags: string[] = [];
 
   constructor(args: string[]) {
     this.parseFlags(args);

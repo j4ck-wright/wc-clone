@@ -2,8 +2,8 @@ import FileValidator from "./FileValidator";
 import FlagValidator from "./FlagValidator";
 
 export default class Parser {
-  protected flags: string[] = [];
-  protected files: string[] = [];
+  private readonly flags: string[] = [];
+  private readonly files: string[] = [];
 
   constructor(args: string[]) {
     const flagParser = new FlagValidator(args);
